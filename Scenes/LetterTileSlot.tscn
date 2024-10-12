@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfeam42e6lnie"]
+
+[ext_resource type="Texture2D" uid="uid://bi26pad8bf8vv" path="res://Assets/TileSlotBack.png" id="1_hdt8t"]
+
+[node name="LetterTileSlot" type="Node2D"]
+
+[node name="TileSlotBack" type="Sprite2D" parent="."]
+position = Vector2(56, 56)
+scale = Vector2(0.222, 0.222)
+texture = ExtResource("1_hdt8t")

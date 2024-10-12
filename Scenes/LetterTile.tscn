@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://batc3rb0yxb13"]
+
+[ext_resource type="Script" path="res://Scripts/LetterTile.gd" id="1_vdqk0"]
+[ext_resource type="Texture2D" uid="uid://dv1fk3kifs8oc" path="res://Assets/TileBack.png" id="1_vrhfx"]
+[ext_resource type="FontFile" uid="uid://d1yg7tlqqbg41" path="res://Assets/Lato-Regular.ttf" id="2_51ngl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8wsur"]
+font = ExtResource("2_51ngl")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_toyqo"]
+font = ExtResource("2_51ngl")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pljf"]
+size = Vector2(112, 111)
+
+[node name="LetterTile" type="Node2D"]
+script = ExtResource("1_vdqk0")
+
+[node name="TileBack" type="Sprite2D" parent="."]
+position = Vector2(56, 56)
+scale = Vector2(0.222, 0.222)
+texture = ExtResource("1_vrhfx")
+
+[node name="LetterLabel" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 69.0
+offset_bottom = 109.0
+text = "Z"
+label_settings = SubResource("LabelSettings_8wsur")
+
+[node name="LetterScoreLabel" type="Label" parent="."]
+offset_left = 78.0
+offset_top = 5.0
+offset_right = 118.0
+offset_bottom = 44.0
+text = "5"
+label_settings = SubResource("LabelSettings_toyqo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(56, 55.5)
+shape = SubResource("RectangleShape2D_4pljf")

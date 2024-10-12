@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d20ekbbnkdj1s"]
+
+[ext_resource type="PackedScene" uid="uid://batc3rb0yxb13" path="res://Scenes/LetterTile.tscn" id="1_hbeq1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LetterTile" parent="." instance=ExtResource("1_hbeq1")]
+position = Vector2(110, 362)
