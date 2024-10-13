@@ -22,7 +22,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		dragging = true
 		dragging_started.emit()
 		mouse_d = position - emb.get_global_position()
-	elif emb.get_button_index() == MOUSE_BUTTON_LEFT and not emb.is_pressed():
+	elif emb.get_button_index() == MOUSE_BUTTON_LEFT and not emb.is_pressed() and dragging:
 		dragging = false
 		dragging_ended.emit()
 	

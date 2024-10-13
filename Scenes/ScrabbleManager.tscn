@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://yo7h5sb4cq00"]
+
+[ext_resource type="Script" path="res://Scripts/ScrabbleManager.gd" id="1_cktwi"]
+[ext_resource type="PackedScene" uid="uid://batc3rb0yxb13" path="res://Scenes/LetterTile.tscn" id="2_w7lb8"]
+[ext_resource type="PackedScene" uid="uid://bfeam42e6lnie" path="res://Scenes/LetterTileSlot.tscn" id="3_0eu1r"]
+[ext_resource type="PackedScene" uid="uid://qfnrl1uq85fu" path="res://Scenes/ErrorMessage.tscn" id="4_7h2cr"]
+
+[node name="ScrabbleManager" type="Node2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("1_cktwi")
+TileScn = ExtResource("2_w7lb8")
+TileSlotScn = ExtResource("3_0eu1r")
+ErrorMessageScn = ExtResource("4_7h2cr")
+slot_count = 10
+letter_bag_size = 10
+
+[node name="Slots" type="Node2D" parent="."]
+position = Vector2(300, 200)
+
+[node name="Tiles" type="Node2D" parent="."]
+position = Vector2(400, 400)
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 830.0
+offset_top = 70.0
+offset_right = 1102.0
+offset_bottom = 133.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Conjure Word"
+
+[node name="ErrorSource" type="Node2D" parent="."]
+position = Vector2(960, 200)
+
+[connection signal="pressed" from="Button" to="." method="attempt_submit_word"]

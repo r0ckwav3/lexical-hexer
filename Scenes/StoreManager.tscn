@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3433w3smwcax"]
+
+[ext_resource type="Script" path="res://Scripts/StoreManager.gd" id="1_5ml13"]
+[ext_resource type="PackedScene" uid="uid://c4uar67ey2u42" path="res://Scenes/UpgradeButton.tscn" id="2_bq0xt"]
+
+[node name="StoreManager" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5ml13")
+money = 1000
+
+[node name="ButtonContainer" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="UpgradeButton" parent="ButtonContainer" instance=ExtResource("2_bq0xt")]
+layout_mode = 2
+
+[node name="ToggleStoreButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -122.0
+offset_right = 147.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Toggle Store"
+
+[connection signal="pressed" from="ToggleStoreButton" to="." method="_on_toggle_store_button_pressed"]

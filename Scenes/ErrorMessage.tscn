@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://qfnrl1uq85fu"]
+
+[ext_resource type="Script" path="res://Scripts/ErrorMessage.gd" id="1_5n3i7"]
+
+[node name="ErrorMessage" type="Node2D"]
+z_index = 10
+position = Vector2(550, 432)
+script = ExtResource("1_5n3i7")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -506.0
+offset_top = 4.0
+offset_right = 516.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "YOUR WARRANTY HAS EXPIRED"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

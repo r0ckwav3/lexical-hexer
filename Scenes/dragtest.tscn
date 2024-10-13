@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://d20ekbbnkdj1s"]
+[gd_scene load_steps=3 format=3 uid="uid://d20ekbbnkdj1s"]
 
 [ext_resource type="PackedScene" uid="uid://batc3rb0yxb13" path="res://Scenes/LetterTile.tscn" id="1_hbeq1"]
+[ext_resource type="PackedScene" uid="uid://bfeam42e6lnie" path="res://Scenes/LetterTileSlot.tscn" id="2_vqnsh"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="LetterTile" parent="." instance=ExtResource("1_hbeq1")]
 position = Vector2(110, 362)
+letter = "L"
+score = 5
+
+[node name="LetterTile2" parent="." instance=ExtResource("1_hbeq1")]
+position = Vector2(457, 391)
+letter = "A"
+score = 1
+
+[node name="LetterTile3" parent="." instance=ExtResource("1_hbeq1")]
+position = Vector2(784, 334)
+letter = "P"
+score = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="LetterTileSlot" parent="Node2D" instance=ExtResource("2_vqnsh")]
+position = Vector2(884, 104)
+
+[node name="LetterTileSlot2" parent="Node2D" instance=ExtResource("2_vqnsh")]
+position = Vector2(733, 102)
+
+[node name="LetterTileSlot3" parent="Node2D" instance=ExtResource("2_vqnsh")]
+position = Vector2(580, 101)

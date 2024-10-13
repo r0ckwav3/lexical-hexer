@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4uar67ey2u42"]
+
+[ext_resource type="Script" path="res://Scripts/UpgradeButton.gd" id="1_knldl"]
+
+[node name="UpgradeButton" type="Button"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_knldl")
+title = "More Letters"
+cost = 100
+description = "Get more letters per bag"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Get more letters per bag
+"
+horizontal_alignment = 1

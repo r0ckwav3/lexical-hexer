@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://0fueqn37fy4g"]
+
+[ext_resource type="PackedScene" uid="uid://b3433w3smwcax" path="res://Scenes/StoreManager.tscn" id="1_gp512"]
+[ext_resource type="PackedScene" uid="uid://yo7h5sb4cq00" path="res://Scenes/ScrabbleManager.tscn" id="2_yub0x"]
+[ext_resource type="PackedScene" uid="uid://cuox088lh6hy8" path="res://Scenes/AdventureQueue.tscn" id="3_5x3sy"]
+
+[node name="Main" type="Node"]
+
+[node name="ScrabbleManager" parent="." instance=ExtResource("2_yub0x")]
+slot_count = 4
+letter_bag_size = 5
+
+[node name="StoreManager" parent="." instance=ExtResource("1_gp512")]
+
+[node name="AdventureQueue" parent="." instance=ExtResource("3_5x3sy")]
+
+[connection signal="submitted_word" from="ScrabbleManager" to="AdventureQueue" method="start_adventure"]
+[connection signal="adventure_finished" from="AdventureQueue" to="StoreManager" method="_on_adventure_queue_adventure_finished"]

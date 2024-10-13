@@ -6,7 +6,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_8wsur"]
 font = ExtResource("2_51ngl")
-font_size = 80
+font_size = 72
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_toyqo"]
@@ -26,23 +26,27 @@ scale = Vector2(0.222, 0.222)
 texture = ExtResource("1_vrhfx")
 
 [node name="LetterLabel" type="Label" parent="."]
-offset_left = 19.0
-offset_top = 12.0
-offset_right = 69.0
+offset_left = 4.0
+offset_top = 21.0
+offset_right = 79.0
 offset_bottom = 109.0
 text = "Z"
 label_settings = SubResource("LabelSettings_8wsur")
+horizontal_alignment = 1
 
 [node name="LetterScoreLabel" type="Label" parent="."]
-offset_left = 78.0
+offset_left = 56.0
 offset_top = 5.0
-offset_right = 118.0
+offset_right = 96.0
 offset_bottom = 44.0
 text = "5"
 label_settings = SubResource("LabelSettings_toyqo")
+horizontal_alignment = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(56, 55.5)
 shape = SubResource("RectangleShape2D_4pljf")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
