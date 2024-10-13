@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfeam42e6lnie"]
 
-[ext_resource type="Texture2D" uid="uid://bi26pad8bf8vv" path="res://Assets/TileSlotBack.png" id="1_hdt8t"]
 [ext_resource type="Script" path="res://Scripts/LetterTileSlot.gd" id="1_nl5su"]
+[ext_resource type="Texture2D" uid="uid://bujox5r2pbuhx" path="res://Assets/SlotBack.png" id="2_wtdeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajiri"]
 size = Vector2(504.505, 504.505)
@@ -22,4 +22,4 @@ shape = SubResource("RectangleShape2D_ajiri")
 z_index = -1
 position = Vector2(56, 56)
 scale = Vector2(0.222, 0.222)
-texture = ExtResource("1_hdt8t")
+texture = ExtResource("2_wtdeq")
