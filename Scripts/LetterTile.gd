@@ -6,16 +6,25 @@ var slot: LetterTileSlot
 
 @export var letter := "Z"
 @export var score := 5
+var is_blank := false
+var blank_inputting := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
 	
-	(find_child("LetterLabel") as Label).text = letter
-	(find_child("LetterScoreLabel") as Label).text = str(score)
+	update_labels()
+	if letter == " ":
+		is_blank = true
+		var font_color = Color("b700a1")
+		find_child("LetterLabel").set("theme_override_colors/font_color", font_color)
 	
 	intial_position = global_position
 	dragging_ended.connect(_on_dragging_ended)
+
+func update_labels():
+	(find_child("LetterLabel") as Label).text = letter
+	(find_child("LetterScoreLabel") as Label).text = str(score)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,6 +47,28 @@ func _on_dragging_ended():
 		global_position = slot.global_position
 	else:
 		global_position = intial_position
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	super(viewport, event, shape_idx)
+	var emb := event as InputEventMouseButton
+	if not emb:
+		return
+	elif emb.get_button_index() == MOUSE_BUTTON_LEFT and emb.is_double_click():
+		if is_blank:
+			letter = "_"
+			blank_inputting = true
+			update_labels()
+
+func _unhandled_key_input(ev):
+	if blank_inputting:
+		if ev is InputEventKey and ev.pressed:
+			var keycode = ev.as_text_keycode()
+			var alpharegex = RegEx.new()
+			alpharegex.compile("^[A-Z]$")
+			if alpharegex.search(keycode):
+				letter = keycode
+				blank_inputting = false
+				update_labels()
 
 func change_slot(new_slot: LetterTileSlot):
 	if slot:
