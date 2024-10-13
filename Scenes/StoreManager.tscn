@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3433w3smwcax"]
+[gd_scene load_steps=4 format=3 uid="uid://b3433w3smwcax"]
 
 [ext_resource type="Script" path="res://Scripts/StoreManager.gd" id="1_5ml13"]
-[ext_resource type="PackedScene" uid="uid://c4uar67ey2u42" path="res://Scenes/UpgradeButton.tscn" id="2_bq0xt"]
+[ext_resource type="PackedScene" uid="uid://3ixf2por7wv1" path="res://Scenes/ReapeatUpgradeButton.tscn" id="2_pm4kn"]
+[ext_resource type="Theme" uid="uid://bplvseo1mim6v" path="res://Assets/ShopTheme.tres" id="2_vkewv"]
 
 [node name="StoreManager" type="Control"]
 z_index = 5
@@ -27,10 +28,20 @@ offset_right = -50.0
 offset_bottom = -150.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_vkewv")
 columns = 3
 
-[node name="UpgradeButton" parent="ButtonContainer" instance=ExtResource("2_bq0xt")]
+[node name="RepeatUpgradeButton" parent="ButtonContainer" instance=ExtResource("2_pm4kn")]
 layout_mode = 2
+title = "More Letters"
+description = "Get more letters to choose from"
+
+[node name="RepeatUpgradeButton2" parent="ButtonContainer" instance=ExtResource("2_pm4kn")]
+layout_mode = 2
+title = "Longer Words"
+base_cost = 100
+cost_scale = 5
+description = "Get more space to make longer words"
 
 [node name="ToggleStoreButton" type="Button" parent="."]
 layout_mode = 1

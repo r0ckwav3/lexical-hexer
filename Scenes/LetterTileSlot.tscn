@@ -7,6 +7,7 @@
 size = Vector2(504.505, 504.505)
 
 [node name="LetterTileSlot" type="Node2D"]
+z_index = -1
 script = ExtResource("1_nl5su")
 
 [node name="Area2D" type="Area2D" parent="."]

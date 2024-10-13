@@ -16,6 +16,7 @@ func _process(delta):
 # TODO: maybe have variable times for words?
 func start_adventure(word, value):
 	var at = adventure_timer.instantiate()
+	at.duration = pow(word.length(),2)/2
 	at.title = word
 	at.value = value
 	at.finished.connect(finish_adventure)
