@@ -11,8 +11,7 @@ slot_count = 4
 letter_bag_size = 5
 
 [node name="StoreManager" parent="." node_paths=PackedStringArray("scrabble_manager") instance=ExtResource("1_gp512")]
-z_index = 0
-money = 0
+money = 100000000
 scrabble_manager = NodePath("../ScrabbleManager")
 
 [node name="AdventureQueue" parent="." instance=ExtResource("3_5x3sy")]

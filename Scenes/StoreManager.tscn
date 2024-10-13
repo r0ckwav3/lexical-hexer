@@ -5,7 +5,6 @@
 [ext_resource type="Theme" uid="uid://bplvseo1mim6v" path="res://Assets/ShopTheme.tres" id="2_vkewv"]
 
 [node name="StoreManager" type="Control"]
-z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +33,7 @@ columns = 3
 [node name="RepeatUpgradeButton" parent="ButtonContainer" instance=ExtResource("2_pm4kn")]
 layout_mode = 2
 title = "More Letters"
+max_tier = 9
 description = "Get more letters to choose from"
 
 [node name="RepeatUpgradeButton2" parent="ButtonContainer" instance=ExtResource("2_pm4kn")]
@@ -41,7 +41,16 @@ layout_mode = 2
 title = "Longer Words"
 base_cost = 100
 cost_scale = 5
+max_tier = 6
 description = "Get more space to make longer words"
+
+[node name="RepeatUpgradeButton3" parent="ButtonContainer" instance=ExtResource("2_pm4kn")]
+layout_mode = 2
+title = "More Blanks"
+base_cost = 1000
+cost_scale = 10
+max_tier = 4
+description = "Get an extra blank tile for every word"
 
 [node name="ToggleStoreButton" type="Button" parent="."]
 layout_mode = 1

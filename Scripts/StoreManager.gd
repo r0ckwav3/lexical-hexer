@@ -33,6 +33,8 @@ func purchase_upgrade(name: String, cost: int):
 		scrabble_manager.increment_letters()
 	if name == "Longer Words":
 		scrabble_manager.increment_slots()
+	if name == "More Blanks":
+		scrabble_manager.increment_blanks()
 
 func _on_toggle_store_button_pressed():
 	if store_visible:

@@ -15,9 +15,9 @@ func _ready():
 
 func update_text():
 	if purchased:
-		get_child(0).get_child(0).text = title + ": " + str(cost) + "G (Purchased)"
+		get_child(0).get_child(0).text = title + " - " + str(cost) + "G (Purchased)"
 	else:
-		get_child(0).get_child(0).text = title + ": " + str(cost) + "G"
+		get_child(0).get_child(0).text = title + " - " + str(cost) + "G"
 	get_child(0).get_child(1).text = description
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

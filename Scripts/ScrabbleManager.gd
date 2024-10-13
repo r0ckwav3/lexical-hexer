@@ -8,6 +8,7 @@ signal submitted_word(word: String, value: int)
 
 @export var slot_count := 4
 @export var letter_bag_size := 5
+@export var free_blanks := 0
 
 var max_slot_separation := 150.0
 var max_word_width := 1210.0
@@ -65,17 +66,26 @@ func _setup_slots():
 		slot_parent.add_child(new_slot)
 
 func _setup_tiles():
-	var rng = RandomNumberGenerator.new()
+	var chosen_tiles = []
 	for i in range(letter_bag_size):
+		chosen_tiles.append(_select_tile())
+	for i in range(free_blanks):
+		chosen_tiles.append({"letter": " ", "score": 0})
+	
+	chosen_tiles.shuffle()
+	
+	var rng = RandomNumberGenerator.new()
+	for i in range(len(chosen_tiles)):
+		var tile_info = chosen_tiles[i]
 		var x = ((i % tile_row_len) * tile_separation) + rng.randf_range(-tile_jitter, tile_jitter)
 		var y = (int(i / tile_row_len) * tile_separation) + rng.randf_range(-tile_jitter, tile_jitter)
-		var tile_info = _select_tile()
 		
 		var new_tile = TileScn.instantiate()
 		new_tile.letter = tile_info["letter"]
 		new_tile.score = tile_info["score"]
 		new_tile.position = Vector2(x, y)
 		tile_parent.add_child(new_tile)
+		
 
 func _select_tile():
 	var index = randi_range(1,total_tile_count)
@@ -145,6 +155,13 @@ func increment_letters():
 
 func increment_slots():
 	slot_count += 1
+	_reset_slots_tiles()
+	_setup_slots()
+	_setup_tiles()
+
+
+func increment_blanks():
+	free_blanks += 1
 	_reset_slots_tiles()
 	_setup_slots()
 	_setup_tiles()
