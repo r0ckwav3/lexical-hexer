@@ -26,6 +26,8 @@ var total_tile_count: int
 
 var legal_words = {}
 
+var power_tiles_enabled = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	slot_parent = find_child("Slots") as Node2D
@@ -81,9 +83,15 @@ func _setup_tiles():
 		var y = (int(i / tile_row_len) * tile_separation) + rng.randf_range(-tile_jitter, tile_jitter)
 		
 		var new_tile = TileScn.instantiate()
+		
 		new_tile.letter = tile_info["letter"]
 		new_tile.score = tile_info["score"]
 		new_tile.position = Vector2(x, y)
+		
+		if power_tiles_enabled:
+			if rng.randf() <= 0.1:
+				new_tile.is_power_tile = true
+		
 		tile_parent.add_child(new_tile)
 		
 
@@ -109,7 +117,7 @@ func attempt_submit_word():
 		_show_error("Invalid word")
 	else:
 		# valid word or single letter
-		submitted_word.emit(word, score * word.length())
+		submitted_word.emit(word, score)
 		_reset_slots_tiles()
 		_setup_slots()
 		_setup_tiles()
@@ -138,9 +146,15 @@ func get_word() -> String:
 
 func get_score() -> int:
 	var score := 0
+	var wordlen := 0
+	var multiplier := 1
 	for slot in slot_parent.get_children():
 		score += slot.get_score()
-	return score
+		if slot.get_letter() != "":
+			wordlen += 1
+		if slot.is_power_tile():
+			multiplier = multiplier*2
+	return score * wordlen * wordlen * multiplier
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -165,3 +179,6 @@ func increment_blanks():
 	_reset_slots_tiles()
 	_setup_slots()
 	_setup_tiles()
+
+func enable_power_tiles():
+	power_tiles_enabled = true

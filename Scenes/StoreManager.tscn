@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3433w3smwcax"]
+[gd_scene load_steps=5 format=3 uid="uid://b3433w3smwcax"]
 
 [ext_resource type="Script" path="res://Scripts/StoreManager.gd" id="1_5ml13"]
 [ext_resource type="PackedScene" uid="uid://3ixf2por7wv1" path="res://Scenes/ReapeatUpgradeButton.tscn" id="2_pm4kn"]
 [ext_resource type="Theme" uid="uid://bplvseo1mim6v" path="res://Assets/ShopTheme.tres" id="2_vkewv"]
+[ext_resource type="PackedScene" uid="uid://c4uar67ey2u42" path="res://Scenes/UpgradeButton.tscn" id="4_q7q1g"]
 
 [node name="StoreManager" type="Control"]
 layout_mode = 3
@@ -51,6 +52,12 @@ base_cost = 1000
 cost_scale = 10
 max_tier = 4
 description = "Get an extra blank tile for every word"
+
+[node name="UpgradeButton" parent="ButtonContainer" instance=ExtResource("4_q7q1g")]
+layout_mode = 2
+title = "Power Tiles"
+cost = 500
+description = "10% of letter tiles will be POWER TILES which multiply the total score by 2"
 
 [node name="ToggleStoreButton" type="Button" parent="."]
 layout_mode = 1

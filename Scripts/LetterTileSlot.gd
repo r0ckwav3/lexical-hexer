@@ -34,4 +34,9 @@ func get_score():
 		return curr_tile.score
 	else:
 		return 0
-	
+
+func is_power_tile():
+	if curr_tile:
+		return curr_tile.is_power_tile
+	else:
+		return false

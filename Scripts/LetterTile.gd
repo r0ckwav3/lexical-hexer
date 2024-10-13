@@ -4,8 +4,11 @@ const LetterTileSlot = preload("res://Scripts/LetterTileSlot.gd")
 var intial_position := Vector2.ZERO
 var slot: LetterTileSlot
 
+@export var power_tile_back: Texture2D
+
 @export var letter := "Z"
-@export var score := 5
+@export var score := 10
+@export var is_power_tile := false
 var is_blank := false
 var blank_inputting := false
 
@@ -18,6 +21,9 @@ func _ready():
 		is_blank = true
 		var font_color = Color("b700a1")
 		find_child("LetterLabel").set("theme_override_colors/font_color", font_color)
+	
+	if is_power_tile:
+		find_child("TileBack").texture = power_tile_back
 	
 	intial_position = global_position
 	dragging_ended.connect(_on_dragging_ended)

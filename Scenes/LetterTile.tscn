@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://batc3rb0yxb13"]
+[gd_scene load_steps=5 format=3 uid="uid://batc3rb0yxb13"]
 
 [ext_resource type="Script" path="res://Scripts/LetterTile.gd" id="1_vdqk0"]
 [ext_resource type="Texture2D" uid="uid://dv1fk3kifs8oc" path="res://Assets/TileBack.png" id="1_vrhfx"]
+[ext_resource type="Texture2D" uid="uid://byovltxannfvd" path="res://Assets/PowerTile.png" id="2_4imkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pljf"]
 size = Vector2(112, 111)
 
 [node name="LetterTile" type="Node2D"]
 script = ExtResource("1_vdqk0")
-letter = " "
-score = 0
+power_tile_back = ExtResource("2_4imkl")
 
 [node name="TileBack" type="Sprite2D" parent="."]
 position = Vector2(56, 56)

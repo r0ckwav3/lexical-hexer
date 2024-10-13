@@ -35,6 +35,8 @@ func purchase_upgrade(name: String, cost: int):
 		scrabble_manager.increment_slots()
 	if name == "More Blanks":
 		scrabble_manager.increment_blanks()
+	if name == "Power Tiles":
+		scrabble_manager.enable_power_tiles()
 
 func _on_toggle_store_button_pressed():
 	if store_visible:
